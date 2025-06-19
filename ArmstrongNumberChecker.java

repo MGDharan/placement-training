@@ -1,0 +1,20 @@
+public class ArmstrongNumberChecker {
+    public static boolean isArmstrong(int num) {
+        int originalNumber = num;
+        int numberOfDigits = String.valueOf(num).length();
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, numberOfDigits);
+            num /= 10;
+        }
+        return sum == originalNumber;
+    }
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        scanner.close();
+        System.out.println(num + " is Armstrong: " + isArmstrong(num));
+    }
+}
