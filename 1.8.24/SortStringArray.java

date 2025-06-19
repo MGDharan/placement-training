@@ -1,0 +1,7 @@
+public class SortStringArray {
+    public static void main(String[] args) {
+        String[] strings = {"banana", "apple", "orange", "grape"};
+        java.util.Arrays.sort(strings);
+        System.out.println("Sorted array: " + java.util.Arrays.toString(strings));
+    }
+}
