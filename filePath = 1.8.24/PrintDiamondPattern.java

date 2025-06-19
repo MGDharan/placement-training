@@ -1,0 +1,27 @@
+public class PrintDiamondPattern {
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter the number of rows (odd number): ");
+        int rows = scanner.nextInt();
+        scanner.close();
+        if (rows % 2 == 0) {
+            System.out.println("Please enter an odd number of rows.");
+            return;
+        }
+        int mid = rows / 2 + 1;
+        for (int i = 1; i <= rows; i++) {
+            int stars = Math.abs(mid - i) * 2 + 1;
+            int spaces = rows - stars;
+            for (int j = 1; j <= spaces / 2; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= stars; j++) {
+                System.out.print("*");
+            }
+            for (int j = 1; j <= spaces / 2; j++) {
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+}
