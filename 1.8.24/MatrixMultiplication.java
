@@ -1,0 +1,29 @@
+public class MatrixMultiplication {
+    public static int[][] multiplyMatrices(int[][] a, int[][] b) {
+        int aRows = a.length;
+        int aCols = a[0].length;
+        int bRows = b.length;
+        int bCols = b[0].length;
+        if (aCols != bRows) {
+            throw new IllegalArgumentException("Matrices cannot be multiplied");
+        }
+        int[][] result = new int[aRows][bCols];
+        for (int i = 0; i < aRows; i++) {
+            for (int j = 0; j < bCols; j++) {
+                for (int k = 0; k < aCols; k++) {
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int[][] matrixA = {{1, 2}, {3, 4}};
+        int[][] matrixB = {{5, 6}, {7, 8}};
+        int[][] product = multiplyMatrices(matrixA, matrixB);
+        System.out.println("Product of matrices:");
+        for (int[] row : product) {
+            System.out.println(java.util.Arrays.toString(row));
+        }
+    }
+}
