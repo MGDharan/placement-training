@@ -1,0 +1,27 @@
+public class PascalTriangle {
+    public static void printPascal(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(calculateCombination(i, j) + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static long calculateCombination(int n, int k) {
+        if (k > n) return 0;
+        if (k == 0 || k == n) return 1;
+        if (k > n / 2) k = n - k;
+        long res = 1;
+        for (int i = 1; i <= k; i++) {
+            res = res * (n - i + 1) / i;
+        }
+        return res;
+    }
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        scanner.close();
+        printPascal(rows);
+    }
+}
